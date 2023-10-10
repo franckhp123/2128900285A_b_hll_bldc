@@ -3,20 +3,20 @@
 
 void Sub_LoopTask(void)
 {
-   static uint8_t s_subTaskNum = 0; //¾²Ì¬¾Ö²¿±äÁ¿×÷ÓÃÓò±¾º¯Êı,Éú´æÆÚ      
+   static uint8_t s_subTaskNum = 0; //é™æ€å±€éƒ¨å˜é‡ä½œç”¨åŸŸæœ¬å‡½æ•°,ç”Ÿå­˜æœŸ      
    
    switch(s_subTaskNum)      
    {
-      case 0: Sub_Reserved();     break; // 0 Ô¤Áô      
-      case 1: Sub_MotorDrive();   break; // 1 Çı¶¯
-      case 2: Sub_Current();      break; // 2 µçÁ÷
-	  case 3: Sub_Voltage();      break; // 3 µçÑ¹
-	  case 4: Sub_Temperature();  break; // 4 ÎÂ¶È
-	  case 5: Sub_HMI();          break; // 5 ÈË»ú½Ó¿Ú
-	  case 6: Sub_WireComm();     break; // 6 ÓĞÏßÍ¨Ñ¶(UART,CAN,LIN)  
-	  case 7: Sub_Wireless();     break; // 7 ÎŞÏßÍ¨Ñ¶
-	  case 8: Sub_Record();       break; // 8 ¼ÇÂ¼ÔÙ´æÖü  
-	  case 9: Sub_Reserved();     break; // 9 Ô¤Áô
+      case 0: Sub_Reserved();     break; // 0 é¢„ç•™      
+      case 1: Sub_MotorDrive();   break; // 1 é©±åŠ¨
+      case 2: Sub_Current();      break; // 2 ç”µæµ
+	  case 3: Sub_Voltage();      break; // 3 ç”µå‹
+	  case 4: Sub_Temperature();  break; // 4 æ¸©åº¦
+	  case 5: Sub_HMI();          break; // 5 äººæœºæ¥å£
+	  case 6: Sub_WireComm();     break; // 6 æœ‰çº¿é€šè®¯(UART,CAN,LIN)  
+	  case 7: Sub_Wireless();     break; // 7 æ— çº¿é€šè®¯
+	  case 8: Sub_Record();       break; // 8 è®°å½•å†å­˜è´®  
+	  case 9: Sub_Reserved();     break; // 9 é¢„ç•™
       default:break;
    }
    if(++s_subTaskNum > 9) s_subTaskNum = 0;     
@@ -24,13 +24,13 @@ void Sub_LoopTask(void)
 
 
 
-static void TaskAndStaChg_InSlefChk(void) //º¯Êı×÷ÓÃÓò±¾ÎÄ¼ş¿ÉÓëÆäËûÎÄ¼şÖĞº¯ÊıÖØÃû
+static void TaskAndStaChg_InSlefChk(void) //å‡½æ•°ä½œç”¨åŸŸæœ¬æ–‡ä»¶å¯ä¸å…¶ä»–æ–‡ä»¶ä¸­å‡½æ•°é‡å
 {
    MosSelfChk();   
    
    #if 0
    if(g_sFlagError.bBusVdcUnder)	
-   { g_eSysState = cSTA_ERR; }    //ÓĞ¹ÊÕÏÇĞ»»Îª¹ÊÕÏ×´Ì¬             
+   { g_eSysState = cSTA_ERR; }    //æœ‰æ•…éšœåˆ‡æ¢ä¸ºæ•…éšœçŠ¶æ€             
    else
    { g_eSysState = cSTA_WAIT; }   // 
    #endif
@@ -46,33 +46,33 @@ static void TaskAndStaChg_InWait(void)
 {
    #if 0
    if(g_sFlagError.bBusVdcUnder)
-   { g_eSysState = cSTA_ERR; }     //ÓĞ¹ÊÕÏÇĞ»»Îª¹ÊÕÏ×´Ì¬                    
+   { g_eSysState = cSTA_ERR; }     //æœ‰æ•…éšœåˆ‡æ¢ä¸ºæ•…éšœçŠ¶æ€                    
    
    else
    { 
       #if 1   
-	  if(g_sMotor.uWorkFlag.bRecvFinish)   //³É¹¦½ÓÊÕµ½´®¿ÚÊı¾İ            
+	  if(g_sMotor.uWorkFlag.bRecvFinish)   //æˆåŠŸæ¥æ”¶åˆ°ä¸²å£æ•°æ®            
 	  {
          g_sMotor.uWorkFlag.bRecvFinish = 0;   
-		 if(g_sMotor.u8MotorRecvBuf[2] != 0) //´«µİËÙ¶È²»Îª0ÖÃ¹¤×÷×´Ì¬         
-	     { g_eSysState = cSTA_RUN; RstVarBeforInRunSta(); } //¸´Î»¹¤×÷×´Ì¬Ç°±äÁ¿
+		 if(g_sMotor.u8MotorRecvBuf[2] != 0) //ä¼ é€’é€Ÿåº¦ä¸ä¸º0ç½®å·¥ä½œçŠ¶æ€         
+	     { g_eSysState = cSTA_RUN; RstVarBeforInRunSta(); } //å¤ä½å·¥ä½œçŠ¶æ€å‰å˜é‡
 	  }
 	  #endif
    } 
    #endif
 }
 
-void RstVarBeforInRunSta(void) //»Ö¸´½øÈë¹¤×÷×´Ì¬Ç°µÄ±äÁ¿³õÊ¼Öµ
+void RstVarBeforInRunSta(void) //æ¢å¤è¿›å…¥å·¥ä½œçŠ¶æ€å‰çš„å˜é‡åˆå§‹å€¼
 {
-   g_sMotor.eAct = eSTANDBY_ACT;   //½øÈë¹¤×÷×´Ì¬Ç°ÖÃµç»ú¶¯×÷Îª´ı»ú¶¯×÷
-   g_sMotor.uStaCnt.u8Standby = 0; //´ı»ú×´Ì¬¼ÆÊıÇå0 
+   g_sMotor.eAct = eSTANDBY_ACT;   //è¿›å…¥å·¥ä½œçŠ¶æ€å‰ç½®ç”µæœºåŠ¨ä½œä¸ºå¾…æœºåŠ¨ä½œ
+   g_sMotor.uStaCnt.u8Standby = 0; //å¾…æœºçŠ¶æ€è®¡æ•°æ¸…0 
 }
 
 static void TaskAndStaChg_InRun(void)      
 {
 }
 
-void RstVarBeforInStopSta(void) //»Ö¸´½øÈëÉ²³µÍ£»ú×´Ì¬Ç°µÄ±äÁ¿³õÊ¼Öµ
+void RstVarBeforInStopSta(void) //æ¢å¤è¿›å…¥åˆ¹è½¦åœæœºçŠ¶æ€å‰çš„å˜é‡åˆå§‹å€¼
 {
    g_sMotor.u16BrakeTime = 0;    
 }
@@ -81,10 +81,10 @@ static void TaskAndStaChg_InStop(void)
 {
    #if 0
    if(g_sFlagError.bBusVdcUnder)
-   { g_eSysState = cSTA_ERR; }          //ÓĞ¹ÊÕÏÇĞ»»Îª¹ÊÕÏ×´Ì¬                
+   { g_eSysState = cSTA_ERR; }          //æœ‰æ•…éšœåˆ‡æ¢ä¸ºæ•…éšœçŠ¶æ€                
    else 
    {
-      if(++g_sMotor.u8BrakeTime >= 20)  //É²³µ200ms×ª´ı»ú×´Ì¬   
+      if(++g_sMotor.u8BrakeTime >= 20)  //åˆ¹è½¦200msè½¬å¾…æœºçŠ¶æ€   
       { g_sMotor.u8BrakeTime = 0; g_eSysState = cSTA_WAIT; }
    }
    #endif
@@ -96,11 +96,11 @@ static void TaskAndStaChg_InErr(void)
    //{ g_eSysState = cSTA_WAIT; }
 }
 
-static void Sub_MotorDrive(void)  //Çı¶¯×ÓÈÎÎñ 10ms/time           
+static void Sub_MotorDrive(void)  //é©±åŠ¨å­ä»»åŠ¡ 10ms/time           
 {
    if(g_eSysState == cSTA_RUN && g_sMotor.eAct == eRUN_ACT)
    {
-      if(++g_u16BlockCnt >= 200)  //³ÖĞø2sÎŞ»»ÏàĞÅºÅ,±¨¶Â×ª¹ÊÕÏ    
+      if(++g_u16BlockCnt >= 200)  //æŒç»­2sæ— æ¢ç›¸ä¿¡å·,æŠ¥å µè½¬æ•…éšœ    
       { 
          g_u16BlockCnt = 0; 
 		 //g_sFlagErr.Bits.bMotorBlock = 1;   
@@ -109,17 +109,17 @@ static void Sub_MotorDrive(void)  //Çı¶¯×ÓÈÎÎñ 10ms/time
    else
    { g_u16BlockCnt = 0; }       
 }
-void Sub_Current(void)  // 10ms/time ·Åµ½STM32Ğ¾Æ¬ÖĞÔËËã                        
+void Sub_Current(void)  // 10ms/time æ”¾åˆ°STM32èŠ¯ç‰‡ä¸­è¿ç®—                        
 {
 }
 
-//µçÑ¹´¦Àí
-static void Sub_Voltage(void)  // 10ms/time  ·Åµ½STM32Ğ¾Æ¬ÖĞÔËËã           
+//ç”µå‹å¤„ç†
+static void Sub_Voltage(void)  // 10ms/time  æ”¾åˆ°STM32èŠ¯ç‰‡ä¸­è¿ç®—           
 {
 }
 
-//ÎÂ¶È´¦Àí:60¡æ(605)->3.0043K,70¡æ(498)->2.2212K,80¡æ(406)->1.6669K,90¡æ(330)->1.2676K,·ÖÑ¹µç×è4.7KÉÏÀ­+5V   
-static void Sub_Temperature(void) //·Åµ½STM32Ğ¾Æ¬ÖĞÔËËã             
+//æ¸©åº¦å¤„ç†:60â„ƒ(605)->3.0043K,70â„ƒ(498)->2.2212K,80â„ƒ(406)->1.6669K,90â„ƒ(330)->1.2676K,åˆ†å‹ç”µé˜»4.7Kä¸Šæ‹‰+5V   
+static void Sub_Temperature(void) //æ”¾åˆ°STM32èŠ¯ç‰‡ä¸­è¿ç®—             
 {
 
 }
@@ -135,7 +135,7 @@ static void Sub_HMI(void)
    static u8 DirFlashCnt = 0;     
   
    
-   if(++DirFlashCnt >= 50)             //ÓĞ¹ÊÕÏµÆÃğ     
+   if(++DirFlashCnt >= 50)             //æœ‰æ•…éšœç¯ç­     
    { 
 	  DirFlashCnt = 0; 
 	  g_sFlagEve.Bits.bDirFlash++; 
@@ -152,61 +152,61 @@ static void Sub_HMI(void)
 
 
 /*--------------------------------------------------------------
-              Ö÷´Ó»ú´®¿ÚÍ¨Ñ¶Ä£¿é   
-u8MotorRecvBuf[0]:Í·Âë0x54
-u8MotorRecvBuf[1]:´Ó»úµØÖ·
-u8MotorRecvBuf[2]:ËÙ¶È(Bit5-Bit0)+·½Ïò(Bit7)+¸î²İµç»úÎ»(Bit6)  
+              ä¸»ä»æœºä¸²å£é€šè®¯æ¨¡å—   
+u8MotorRecvBuf[0]:å¤´ç 0x54
+u8MotorRecvBuf[1]:ä»æœºåœ°å€
+u8MotorRecvBuf[2]:é€Ÿåº¦(Bit5-Bit0)+æ–¹å‘(Bit7)+å‰²è‰ç”µæœºä½(Bit6)  
 ----------------------------------------------------------------*/
-static void Sub_WireComm(void)  //ÓĞÏßÍ¨ĞÅ³ÌĞò              
+static void Sub_WireComm(void)  //æœ‰çº¿é€šä¿¡ç¨‹åº              
 {
-   if(g_sFlagErr.Bits.bShortCurrent)     //µç»ú¶ÌÂ·×´Ì¬   
+   if(g_sFlagErr.Bits.bShortCurrent)     //ç”µæœºçŸ­è·¯çŠ¶æ€   
    { g_sMotor.u8MotorStatus = 0x01; }
-   else if(g_sFlagErr.Bits.bMotorBlock)  //µç»ú¶Â×ª¹ÊÕÏ   
+   else if(g_sFlagErr.Bits.bMotorBlock)  //ç”µæœºå µè½¬æ•…éšœ   
    { g_sMotor.u8MotorStatus = 0x02; }       
 #if 0
-   //ÉèÖÃ·¢ËÍ»º´æ 
+   //è®¾ç½®å‘é€ç¼“å­˜ 
    g_sMotor.u8MotorSendBuf[0] = 0x54;  
-   g_sMotor.u8MotorSendBuf[1] = g_sMotor.u8MotorRecvBuf[1]; //ÉèÖÃ·¢ËÍ´Ó»úµØÖ·  
-   g_sMotor.u8MotorSendBuf[2] = g_sMotor.u8MotorStatus;     //µç»úÔËĞĞ×´Ì¬ g_sBusIdc.RealValue
+   g_sMotor.u8MotorSendBuf[1] = g_sMotor.u8MotorRecvBuf[1]; //è®¾ç½®å‘é€ä»æœºåœ°å€  
+   g_sMotor.u8MotorSendBuf[2] = g_sMotor.u8MotorStatus;     //ç”µæœºè¿è¡ŒçŠ¶æ€ g_sBusIdc.RealValue
    g_sMotor.u8MotorSendBuf[3] = 0xff; 
  #endif 
  #if 1
    g_sMotor.u8MotorSendBuf[0] = 0x54;  
-   g_sMotor.u8MotorSendBuf[1] = g_sMotor.u8MotorRecvBuf[1]; //ÉèÖÃ·¢ËÍ´Ó»úµØÖ·
+   g_sMotor.u8MotorSendBuf[1] = g_sMotor.u8MotorRecvBuf[1]; //è®¾ç½®å‘é€ä»æœºåœ°å€
   
- //  g_sMotor.u8MotorSendBuf[2] = (g_sMotor.u16Speed <<2)|(g_sMotor.u8MotorStatus);     //µç»úÔËĞĞ×´Ì¬ g_sBusIdc.RealValue
-  //  g_sMotor.u8MotorSendBuf[2] = ((g_sMotor.u16Speed>>6) <<2)|(g_sMotor.u8MotorStatus);     //µç»úÔËĞĞ×´Ì¬ g_sBusIdc.RealValue//
+ //  g_sMotor.u8MotorSendBuf[2] = (g_sMotor.u16Speed <<2)|(g_sMotor.u8MotorStatus);     //ç”µæœºè¿è¡ŒçŠ¶æ€ g_sBusIdc.RealValue
+  //  g_sMotor.u8MotorSendBuf[2] = ((g_sMotor.u16Speed>>6) <<2)|(g_sMotor.u8MotorStatus);     //ç”µæœºè¿è¡ŒçŠ¶æ€ g_sBusIdc.RealValue//
    
-   g_sMotor.u8MotorSendBuf[2] = (g_sMotor.u8MotorStatus);     //µç»úÔËĞĞ×´Ì¬ g_sBusIdc.RealValue//
+   g_sMotor.u8MotorSendBuf[2] = (g_sMotor.u8MotorStatus);     //ç”µæœºè¿è¡ŒçŠ¶æ€ g_sBusIdc.RealValue//
    g_sMotor.u8MotorSendBuf[3] = 0xff; 
    #endif 
 #if 0
-   if(g_sFlagErr.Bits.bShortCurrent)     //µç»ú¶ÌÂ·×´Ì¬   
+   if(g_sFlagErr.Bits.bShortCurrent)     //ç”µæœºçŸ­è·¯çŠ¶æ€   
    { g_sMotor.u8MotorStatus = 0x02; }
    
-   else if(g_sFlagErr.Bits.bMosOverTmp)  //mos¹ıÎÂ¹ÊÕÏ
+   else if(g_sFlagErr.Bits.bMosOverTmp)  //mosè¿‡æ¸©æ•…éšœ
    { g_sMotor.u8MotorStatus = 0x03;}
    
-   else if(g_sFlagErr.Bits.bAvgIdcOver)  //µç»ú¹ıÁ÷×´Ì¬       
+   else if(g_sFlagErr.Bits.bAvgIdcOver)  //ç”µæœºè¿‡æµçŠ¶æ€       
    { g_sMotor.u8MotorStatus = 0x04; }
    
-   else if(g_sFlagErr.Bits.bBusVdcUnder) //Ä¸ÏßÇ·Ñ¹×´Ì¬   
+   else if(g_sFlagErr.Bits.bBusVdcUnder) //æ¯çº¿æ¬ å‹çŠ¶æ€   
    { g_sMotor.u8MotorStatus = 0x05; }
    
-   else if(g_sFlagErr.Bits.bObstacles)   //µç»úÓöÕÏ×´Ì¬        
+   else if(g_sFlagErr.Bits.bObstacles)   //ç”µæœºé‡éšœçŠ¶æ€        
    { g_sMotor.u8MotorStatus = 0x06; }
    
-   else                                  //µç»úÕı³£·¢ËÍ×´Ì¬0x0   
+   else                                  //ç”µæœºæ­£å¸¸å‘é€çŠ¶æ€0x0   
    { g_sMotor.u8MotorStatus = 0x0;}  
 
    //UartSendData(g_sMotor.u8MotorStatus);  
    
    //g_sMotor.u8MotorStatus = 0x0;
-   //ÉèÖÃ·¢ËÍ»º´æ    
+   //è®¾ç½®å‘é€ç¼“å­˜    
    g_sMotor.u8MotorSendBuf[0] = 0x54;     
-   g_sMotor.u8MotorSendBuf[1] = g_sMotor.u8MotorRecvBuf[1]; //ÉèÖÃ·¢ËÍ´Ó»úµØÖ·  
-   g_sMotor.u8MotorSendBuf[2] = g_sMotor.u8MotorStatus;     //µç»úÔËĞĞ×´Ì¬ g_sBusIdc.RealValue
-   //g_sMotor.u8MotorSendBuf[2] = g_sBusIdc.RealValue;        //·¢ËÍµç»úµçÁ÷(16ms¸üĞÂ1´Î)   
+   g_sMotor.u8MotorSendBuf[1] = g_sMotor.u8MotorRecvBuf[1]; //è®¾ç½®å‘é€ä»æœºåœ°å€  
+   g_sMotor.u8MotorSendBuf[2] = g_sMotor.u8MotorStatus;     //ç”µæœºè¿è¡ŒçŠ¶æ€ g_sBusIdc.RealValue
+   //g_sMotor.u8MotorSendBuf[2] = g_sBusIdc.RealValue;        //å‘é€ç”µæœºç”µæµ(16msæ›´æ–°1æ¬¡)   
    g_sMotor.u8MotorSendBuf[3] = 0xff; 
 #endif   
 }
