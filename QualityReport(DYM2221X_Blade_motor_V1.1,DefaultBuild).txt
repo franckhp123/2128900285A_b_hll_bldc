@@ -1,0 +1,282 @@
+QualityReport
+2022年8月8日 18:54:30
+
+------ Start build(DYM2221X_Blade_motor_V1.1, DefaultBuild) ------
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.09.00\Bin\rlink.exe -subcommand=DefaultBuild\DYM2221X_Blade_motor_V1.1.clnk
+W0561016:The evaluation version is valid for the remaining 27 days
+RAMDATA SECTION:  0000028c Byte(s)
+ROMDATA SECTION:  00000369 Byte(s)
+PROGRAM SECTION:  00001d9c Byte(s)
+W0561016:The evaluation version is valid for the remaining 27 days
+Renesas Optimizing Linker Completed
+------ Build ended(Error:0, Warning:2)(DYM2221X_Blade_motor_V1.1, DefaultBuild) ------
+
+--- CommandFile 1 ---
+DefaultBuild\DYM2221X_Blade_motor_V1.1.clnk :
+-Input=DefaultBuild\cstart.obj
+-Input=DefaultBuild\main.obj
+-Input=DefaultBuild\stkinit.obj
+-Input=DefaultBuild\systeminit.obj
+-Input=DefaultBuild\cgc.obj
+-Input=DefaultBuild\cgc_user.obj
+-Input=DefaultBuild\PublicWare.obj
+-Input=DefaultBuild\port.obj
+-Input=DefaultBuild\port_user.obj
+-Input=DefaultBuild\tau.obj
+-Input=DefaultBuild\tau_user.obj
+-Input=DefaultBuild\sau.obj
+-Input=DefaultBuild\sau_user.obj
+-Input=DefaultBuild\adc.obj
+-Input=DefaultBuild\adc_user.obj
+-Input=DefaultBuild\comppga.obj
+-Input=DefaultBuild\comppga_user.obj
+-Input=DefaultBuild\SubTask.obj
+-Input=DefaultBuild\GlobalVar.obj
+-Input=DefaultBuild\tmrd.obj
+-Input=DefaultBuild\tmrd_user.obj
+-Input=DefaultBuild\elc.obj
+-Input=DefaultBuild\elc_user.obj
+-Input=DefaultBuild\BLDC.obj
+-Input=DefaultBuild\MainTask.obj
+-Input=DefaultBuild\PID.obj
+-Input=DefaultBuild\r_cg_intp.obj
+-Input=DefaultBuild\r_cg_intp_user.obj
+-Input=DefaultBuild\r_cg_it.obj
+-Input=DefaultBuild\r_cg_it_user.obj
+-SECURITY_ID=00000000000000000000
+-DEVICE=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device_Custom\RL78\Devicefile\DR5FC009B.DVF
+-DEBug
+-NOCOmpress
+-NOOPtimize
+-OUtput=DefaultBuild\DYM2221X_Blade_motor_V1.1.abs
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.09.00\lib\rl78em4s.lib
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.09.00\lib\malloc_n.lib
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.09.00\lib\rl78em4r.lib
+-OCDBG=84
+-DEBUG_MONITOR=3E00-3FFF
+-USER_OPT_BYTE=F77FF0
+-LISt=DefaultBuild\DYM2221X_Blade_motor_V1.1.map
+-AUTO_SECTION_LAYOUT
+-ROm=.data=.dataR
+-ROm=.sdata=.sdataR
+-NOMessage
+-MEMory=High
+-Total_size
+-NOLOgo
+-end
+-Input=DefaultBuild\DYM2221X_Blade_motor_V1.1.abs
+-DEVICE=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device_Custom\RL78\Devicefile\DR5FC009B.DVF
+-OUtput=DefaultBuild\DYM2221X_Blade_motor_V1.1.hex
+-FOrm=Hexadecimal
+-NOMessage
+-exit
+
+
+
+--- System Information ---
+*OS Version
+ Microsoft Windows 10 家庭中文版 (-, 10.0.19044, WOW64)
+*Language
+ 中文(中国)
+*.NET Framework Version
+ Microsoft .NET Framework 4 [.NET 4.6 / .NET 4.6.1] (4.0.30319.42000)
+
+--- Application Information ---
+*Product Name
+ CS+ for CC
+*Package Version
+ V8.03.00  [21 Nov 2019]
+*Version
+ V9.03.00.07 [11 Nov 2019]
+*Assembly Version
+ 3.12.10.1
+*Sales Area
+ Japan
+*Product License
+ 
+*Execution Place
+ C:\Program Files (x86)\Renesas Electronics\CS+\CC
+*Memory Usage
+ *Private Working Set
+  221 MB
+ *Number of GDI Objects
+  1910
+ *Number of USER Objects
+  971
+ *Opened Files
+  0 editors, 0 files, 0 KB
+
+--- Build Tool Plug-in Information ---
+RH850 Build tool CC-RH Plug-in
+ *Version
+  V8.02.00.00 [25 Mar 2019]
+ *Assembly Version
+  1.1.10.12
+ *DLL File Name
+  BuildToolCCRH.dll
+RL78 Build tool CC-RL Plug-in
+ *Version
+  V8.02.00.00 [25 Mar 2019]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  BuildToolCCRL.dll
+RX Build tool CC-RX Plug-in
+ *Version
+  V8.02.00.00 [25 Mar 2019]
+ *Assembly Version
+  3.12.10.1
+ *DLL File Name
+  BuildToolCCRX.dll
+RH850 Build tool GHS CCRH850 Plug-in
+ *Version
+  V1.04.00.01 [12 Oct 2018]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  BuildToolGHSCCRH850.dll
+
+--- Debug Tool Plug-in Information ---
+Debugger Collection Plug-in
+ *Version
+  V8.03.00.05 [11 Nov 2019]
+ *Assembly Version
+  2.12.10.1
+ *DLL File Name
+  DebugToolCollection.dll
+
+--- Other Plug-in Information ---
+Code Generator Plug-in for RH850
+ *Version
+  V1.02.02.05 [25 May 2018]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  CodeGeneratorRH850.dll
+Code Generator Plug-in
+ *Version
+  V4.08.04.01 [17 May 2019]
+ *Assembly Version
+  3.0.0.0
+ *DLL File Name
+  CodePart.dll
+Code Generator/PinView Plug-in
+ *Version
+  V2.10.05.01 [15 Nov 2019]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  CodePart2.dll
+Debug Console Plug-in
+ *Version
+  V7.00.00.01 [06 Apr 2018]
+ *Assembly Version
+  7.0.0.0
+ *DLL File Name
+  DebugConsole.dll
+Quick and Effective tool solution - QE
+ *Version
+  V3.03.00.02 [20 May 2019]
+ *Assembly Version
+  1.15.10.16
+ *DLL File Name
+  InCarTools.dll
+Pin Configurator Plug-in
+ *Version
+  V1.54.01.01 [31 Jul 2014]
+ *Assembly Version
+  1.6.10.23
+ *DLL File Name
+  PinConfig.dll
+Program Analyzer Plug-in
+ *Version
+  V4.11.00.01 [25 Sep 2019]
+ *Assembly Version
+  3.12.11.9
+ *DLL File Name
+  ProgramAnalyzer.dll
+IronPython Console Plug-in
+ *Version
+  V1.39.00.03 [04 Nov 2019]
+ *Assembly Version
+  1.6.10.23
+ *DLL File Name
+  PythonConsole.dll
+Editor plug-in DLL
+ *Version
+  V1.15.00.01 [29 Mar 2019]
+ *Assembly Version
+  1.1.0.0
+ *DLL File Name
+  SEditor.dll
+Stack Usage Tracer
+ *Version
+  V1.05.00.02 [30 Jul 2014]
+ *Assembly Version
+  1.30.11.15
+ *DLL File Name
+  Stk.dll
+Update Manager Plug-in
+ *Version
+  V2.03.00.02 [29 Oct 2018]
+ *Assembly Version
+  1.13.6.20
+ *DLL File Name
+  Update.dll
+
+Debug Tool Common Interface
+ *Version
+  V8.03.00.05 [11 Nov 2019]
+ *Assembly Version
+  3.12.10.1
+ *DLL File Name
+  CommonDebuggerInterface.dll
+Device Information Common Interface
+ *Version
+  V9.02.00.03 [25 Apr 2019]
+ *Assembly Version
+  3.0.0.0
+ *DLL File Name
+  DeviceInformation.dll
+
+--- Main Project Information ---
+C:\FrankHe\work\dyhkk\motor_code\hall_gecaoji_DYM2232x\DYM2221X_Blade_MotorDriverLoopInc\DYM2221X_Blade_motor_V1.1.mtpj
+Microcontroller Information
+ *R7F0C009B
+  *File Name: Version
+   RL78_China_R7F0C009F_Custom_Productlist.xml: E1.100004
+   R7F0C009B_common.xml: E1.10b.03.XX.XX
+   DR5FC009B.DVF: E1.00e
+   -: -
+   -: -
+  
+
+Build Tool Information
+ *CC-RL
+   * Version of plug-in(*.dll)
+     V8.03.00.02 [21 Oct 2019]
+   * The Version of the Compiler Package
+     V1.09.00
+  
+
+Debug Tool Information
+ *RL78 E1(Serial)
+  Debugger Library V8.03.00.05 [11 Nov 2019]
+  
+
+Other Tool Information
+ *None
+
+ *None
+
+ *None
+
+ *None
+
+ *Program Analyzer
+  *Version
+   V4.11.00.01 [25 Sep 2019]
+
+ *None
+
+

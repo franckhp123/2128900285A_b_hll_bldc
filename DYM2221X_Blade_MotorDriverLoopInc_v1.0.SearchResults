@@ -1,0 +1,7 @@
+---- PIRefSpeedUpValue Matches (6 in 3 files) ----
+BLDC.h:   u16                     PIRefSpeedUpValue;      //PI环给定速度步进值  
+PID.c:   g_sMotor.PIRefSpeedUpValue = 30;          //给定速度步进值3000*0.01   
+PublicWare.c:   if(u16RefSpeed+g_sMotor.PIRefSpeedUpValue <= u16TargetSpeed) 
+PublicWare.c:   { u16RefSpeed += g_sMotor.PIRefSpeedUpValue;  }
+PublicWare.c:   else if(u16RefSpeed > u16TargetSpeed+g_sMotor.PIRefSpeedUpValue) 
+PublicWare.c:   { u16RefSpeed -= g_sMotor.PIRefSpeedUpValue; }
